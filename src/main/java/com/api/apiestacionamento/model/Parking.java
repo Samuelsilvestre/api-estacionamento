@@ -28,7 +28,6 @@ public class Parking implements Serializable {
     private String name;
 
     @Column(name = "type", nullable = false, length = 25)
-    @Pattern(regexp = "aero porto|porto|shoping|condominio")
     private String type;
 
     private LocalDateTime date;
