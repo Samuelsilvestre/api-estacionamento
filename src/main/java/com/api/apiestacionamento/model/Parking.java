@@ -1,8 +1,11 @@
 package com.api.apiestacionamento.model;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.rmi.server.UID;
 import java.time.LocalDateTime;
+
+import org.hibernate.type.descriptor.jdbc.BigIntJdbcType;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,7 +25,7 @@ public class Parking implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UID id;
+    private BigInteger id;
 
     @Column(name = "name", length = 25, nullable = false, unique = true)
     private String name;
