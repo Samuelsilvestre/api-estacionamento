@@ -12,5 +12,6 @@ import com.api.apiestacionamento.model.Parking;
 public interface ParkingRepository extends JpaRepository<Parking, BigInteger> {
 
     boolean existsByName(String name);
+
     
 }
