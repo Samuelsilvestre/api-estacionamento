@@ -1,5 +1,7 @@
 package com.api.apiestacionamento.service;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import com.api.apiestacionamento.model.Parking;
@@ -14,6 +16,11 @@ public class ParkingService {
 
     public ParkingService(ParkingRepository repository) {
         this.repository = repository;
+
+    }
+
+    public boolean hasName(String name) {
+        return repository.existsByName(name);
 
     }
 

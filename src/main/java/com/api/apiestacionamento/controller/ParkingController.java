@@ -2,6 +2,7 @@ package com.api.apiestacionamento.controller;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +30,12 @@ public class ParkingController {
 
     @PostMapping("/post")
     public ResponseEntity<Object> save(@RequestBody @Valid ParkingDto dto) {
+
+        if (service.hasName(dto.getName())) {
+            return ResponseEntity.badRequest().body("nome de estacionamento ja esta cadastrado.");
+            
+        }
+
         Parking model = new Parking();
         BeanUtils.copyProperties(dto, model);
         model.setDate(LocalDateTime.now(ZoneId.of("UTC")));
