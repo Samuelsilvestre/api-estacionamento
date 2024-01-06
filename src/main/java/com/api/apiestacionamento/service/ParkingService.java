@@ -41,6 +41,12 @@ public class ParkingService {
     
     public Optional<Parking> getOne(BigInteger id) {
         return repository.findById(id);
+
+    }
+    
+    @Transactional
+    public void deleteRegister(Parking parking) {
+        repository.delete(parking);
         
     }
 }
