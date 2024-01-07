@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.math.BigInteger;
 import java.rmi.server.UID;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 import org.hibernate.type.descriptor.jdbc.BigIntJdbcType;
 
@@ -32,7 +33,12 @@ public class Parking implements Serializable {
 
     @Column(name = "type", nullable = false, length = 25)
     private String type;
+    
+    @Column(name = "address", length = 50, nullable = false)
+    private String address;
 
     private LocalDateTime date;
+
+    private LocalDateTime dataUpdate =  LocalDateTime.now(ZoneId.of("UTC"));
 
 }

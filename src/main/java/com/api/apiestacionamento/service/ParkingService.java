@@ -2,12 +2,7 @@ package com.api.apiestacionamento.service;
 import java.math.BigInteger;
 import java.util.List;
 import java.util.Optional;
-
-import javax.swing.text.html.Option;
-
-import org.hibernate.type.descriptor.jdbc.BigIntJdbcType;
 import org.springframework.stereotype.Service;
-
 import com.api.apiestacionamento.model.Parking;
 import com.api.apiestacionamento.repository.ParkingRepository;
 
@@ -22,16 +17,17 @@ public class ParkingService {
         this.repository = repository;
 
     }
+    
+    public List<Parking> listParking( ) {
+        return repository.findAll();
+        
+    }
 
     public boolean hasName(String name) {
         return repository.existsByName(name);
 
     }
 
-    public List<Parking> getAll() {
-        return repository.findAll();
-
-    }
 
     @Transactional
     public Object save(Parking parking) {

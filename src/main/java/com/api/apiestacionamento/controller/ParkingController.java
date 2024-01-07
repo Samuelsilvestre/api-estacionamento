@@ -1,12 +1,10 @@
 package com.api.apiestacionamento.controller;
-
+import java.util.List;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.List;
 import java.util.Optional;
 
-import javax.swing.text.html.Option;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.ResponseEntity;
@@ -52,15 +50,13 @@ public class ParkingController {
 
     }
     
-
+    
     @GetMapping("/get")
-    public ResponseEntity<List<Parking>> listParking() {
-        return ResponseEntity.ok().body(service.getAll());
-
-
-    }
-
-
+    public ResponseEntity<List<Parking>> getAll() {
+        return ResponseEntity.ok().body(service.listParking());
+    }  
+   
+  
     @GetMapping("/get/{id}")
     public ResponseEntity<Object> getOne(@PathVariable BigInteger id) {
         Optional<Parking> optional = service.getOne(id);

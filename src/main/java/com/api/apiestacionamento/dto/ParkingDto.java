@@ -20,4 +20,9 @@ public class ParkingDto {
     @Length(max = 25)
     @Pattern(regexp = "aero porto|porto|shoping|condominio")
     private String type;
+    
+    @NotBlank
+    @NotNull
+    @Length(max = 50)
+    private String address;
 }
