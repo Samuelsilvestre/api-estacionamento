@@ -39,6 +39,5 @@ public class Parking implements Serializable {
 
     private LocalDateTime date;
 
-    private LocalDateTime dataUpdate =  LocalDateTime.now(ZoneId.of("UTC"));
 
 }
